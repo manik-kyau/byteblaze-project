@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import placeholderImage from '../../assets/memory.jpg'
-const Blog = ({blog}) => {
-	// console.log(blog)
+import { TiDelete } from "react-icons/ti";
+const Blog = ({blog, deletable,handleDelete}) => {
+	
 	const {cover_image,title,description,published_at,id} =blog;
+
     return (
-        <div className="transition border-2 hover:border-secondary hover:scale-105 rounded-lg border-opacity-30">
+        <div className="flex relative">
+		<div className="transition border-2 hover:border-secondary hover:scale-105 rounded-lg border-opacity-30">
             <Link to={`/blog/${id}`}
              className="max-w-sm mx-auto group  hover:no-underline focus:no-underline dark:bg-gray-900">
 				<img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src={cover_image || placeholderImage} />
@@ -15,6 +18,10 @@ const Blog = ({blog}) => {
 				</div>
 			</Link>
         </div>
+
+			{deletable && <div onClick={()=>handleDelete(id)} className="absolute -right-5 -top-5 hover:scale-105"><TiDelete className="text-4xl text-red-600"></TiDelete></div>}
+
+		</div>
     );
 };
 

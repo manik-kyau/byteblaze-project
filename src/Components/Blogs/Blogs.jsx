@@ -1,10 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Blog from "../Blog/Blog";
-// import Blog from "../Blog/Blog";
+import Spinner from "../Spinner/Spinner";
 
 const Blogs = () => {
-
+	// <Loader
     const blogs =useLoaderData();
+	const navigation = useNavigation();
+	if(navigation.state === 'loading'){
+		return <Spinner></Spinner>
+	}
 
     return (
         <div>
@@ -21,7 +25,7 @@ const Blogs = () => {
 		</a>
 		<div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{
-                blogs.map((blog,idx) =><Blog key = {idx} blog={blog}></Blog>)
+                blogs.slice(1).map((blog,idx) =><Blog key = {idx} blog={blog}></Blog>)
             }
 		</div>
 	</div>

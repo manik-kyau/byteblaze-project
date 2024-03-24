@@ -28,11 +28,13 @@ export const router = createBrowserRouter([
           children:[
             {
                 path:'content',
-                element:<Content></Content>
+                element:<Content></Content>,
+                loader:({params})=> fetch(`https://dev.to/api/articles/${params.Id}`),
             },
             {
                 path:'author',
-                element:<Author></Author>
+                element:<Author></Author>,
+                loader:({params})=> fetch(`https://dev.to/api/articles/${params.Id}`),
             }
           ]
         },
