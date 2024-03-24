@@ -27,7 +27,7 @@ const Navbar = () => {
                 <a className="text-2xl font-bold text-secondary">Byte<span className="text-primary">Blaze</span></a>
               </div>
               <div className="flex-none">
-                <ul className="menu menu-horizontal px-1 text-lg font-bold space-x-12 mr-10">
+                <ul className="menu menu-horizontal px-1 text-lg font-bold space-x-7 mr-6">
 
                     <NavLink to='/'className={({isActive}) => isActive ? 'text-red-500 font-extrabold' : 'font-bold'}>Home</NavLink>
                     <NavLink to='/blogs' className={({isActive}) => isActive ? 'text-red-500 font-extrabold' : 'font-bold'}>Blogs</NavLink>

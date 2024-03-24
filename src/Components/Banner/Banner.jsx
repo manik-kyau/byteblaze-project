@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div>
+        <div className="lg:mt-12">
             <div className="hero">
               <div className="hero-content text-center">
                 <div className="max-w-lg">
