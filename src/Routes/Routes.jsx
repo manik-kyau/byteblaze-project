@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
           loader:({params}) => fetch(`https://dev.to/api/articles/${params.Id}`),
           children:[
             {
-                path:'content',
+                index: true,
                 element:<Content></Content>,
                 loader:({params})=> fetch(`https://dev.to/api/articles/${params.Id}`),
             },
